@@ -1,0 +1,11 @@
+{
+  "Group": "dev.brokenbytes",
+  "Name": "Hykore",
+  "Main": "dev.brokenbytes.hykore.HyKore",
+  "Version": "0.1.0",
+  "Description": "HyKore",
+  "Authors": [{ "Name": "Marcel Kulina" }],
+  "ServerVersion": "*",
+  "Dependencies": {},
+  "OptionalDependencies": {}
+}
