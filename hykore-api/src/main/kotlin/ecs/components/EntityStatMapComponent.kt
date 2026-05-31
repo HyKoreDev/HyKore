@@ -1,7 +1,13 @@
 package dev.brokenbytes.hykoreapi.ecs.components
 
-interface EntityStatMapComponent: EcsComponent {
-    val size: Int
+import dev.brokenbytes.hykoreapi.core.Stat
 
-    fun getStat(index: Int): Float?
+interface EntityStatMapComponent: EcsComponent {
+
+    val health: Stat
+    val oxygen: Stat
+    val stamina: Stat
+    val mana: Stat
+    val signatureEnergy: Stat
+    val ammo: Stat
 }
