@@ -2,7 +2,7 @@ package dev.brokenbytes.hykoreapi.ecs.components
 
 import dev.brokenbytes.hykoreapi.core.Notification
 
-interface PlayerRef: EcsComponent {
+interface PlayerRefComponent: EcsComponent {
     val id: String
     val name: String
 

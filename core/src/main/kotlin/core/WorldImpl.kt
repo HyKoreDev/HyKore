@@ -2,9 +2,9 @@ package dev.brokenbytes.hykore.core
 
 import dev.brokenbytes.hykore.HMessage
 import dev.brokenbytes.hykore.HWorld
-import dev.brokenbytes.hykore.ecs.components.PlayerRefImpl
+import dev.brokenbytes.hykore.ecs.components.PlayerRefComponentImpl
 import dev.brokenbytes.hykoreapi.core.Message
-import dev.brokenbytes.hykoreapi.ecs.components.PlayerRef
+import dev.brokenbytes.hykoreapi.ecs.components.PlayerRefComponent
 import dev.brokenbytes.hykoreapi.core.World
 
 class WorldImpl(private val world: HWorld) : World {
@@ -18,8 +18,8 @@ class WorldImpl(private val world: HWorld) : World {
         world.sendMessage(content)
     }
 
-    override fun getPlayers(): List<PlayerRef> =
-        world.playerRefs.map { PlayerRefImpl.from(it) }
+    override fun getPlayers(): List<PlayerRefComponent> =
+        world.playerRefs.map { PlayerRefComponentImpl.from(it) }
 
     override fun equals(other: Any?) = other is WorldImpl && other.world === this.world
     override fun hashCode() = System.identityHashCode(world)
