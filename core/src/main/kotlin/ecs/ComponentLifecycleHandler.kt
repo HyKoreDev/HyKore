@@ -4,7 +4,6 @@ import com.hypixel.hytale.component.*
 import com.hypixel.hytale.component.query.Query
 import com.hypixel.hytale.component.system.RefChangeSystem
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
-import dev.brokenbytes.hykore.core.EntityImpl
 import dev.brokenbytes.hykore.core.WorldImpl
 import dev.brokenbytes.hykore.mappers.ComponentMapper
 import dev.brokenbytes.hykoreapi.core.Entity

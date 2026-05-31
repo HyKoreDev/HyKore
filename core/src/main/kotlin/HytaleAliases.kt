@@ -7,6 +7,8 @@ import com.hypixel.hytale.server.core.Message
 import com.hypixel.hytale.server.core.entity.entities.Player
 import com.hypixel.hytale.server.core.event.events.ecs.BreakBlockEvent
 import com.hypixel.hytale.server.core.event.events.player.PlayerEvent
+import com.hypixel.hytale.server.core.modules.entity.component.DisplayNameComponent
+import com.hypixel.hytale.server.core.modules.entity.damage.Damage
 import com.hypixel.hytale.server.core.modules.entity.damage.DeathComponent
 import com.hypixel.hytale.server.core.universe.PlayerRef
 import com.hypixel.hytale.server.core.universe.Universe
@@ -24,7 +26,14 @@ typealias HMessage = Message
 typealias HPlayer = Player
 typealias HPlayerRef = PlayerRef
 
+typealias HDamageSource = Damage.Source
+typealias HEntityDamageSource = Damage.EntitySource
+typealias HProjectileDamageSource = Damage.ProjectileSource
+typealias HEnvironmentDamageSource = Damage.EnvironmentSource
+typealias HCommandDamageSource = Damage.CommandSource
+
 typealias HDeathComponent = DeathComponent
+typealias HDisplayNameComponent = DisplayNameComponent
 
 typealias HUniverse = Universe
 

@@ -1,14 +1,14 @@
-package dev.brokenbytes.hykore.core
+package dev.brokenbytes.hykore.ecs.components
 
 import dev.brokenbytes.hykore.HPlayerRef
 import dev.brokenbytes.hykoreapi.core.Notification
-import dev.brokenbytes.hykoreapi.core.PlayerRef
+import dev.brokenbytes.hykoreapi.ecs.components.PlayerRef
 
 class PlayerRefImpl(private val ref: HPlayerRef): PlayerRef {
 
     override val id: String = ref.uuid.toString()
 
-    override val name: String = ""
+    override val name: String = ref.username
 
     override fun sendNotification(notification: Notification) {
     }

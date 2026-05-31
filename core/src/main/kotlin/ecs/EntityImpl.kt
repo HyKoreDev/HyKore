@@ -1,11 +1,12 @@
-package dev.brokenbytes.hykore.core
+package dev.brokenbytes.hykore.ecs
 
 import com.hypixel.hytale.component.Ref
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
 import dev.brokenbytes.hykore.mappers.ComponentMapper
 import dev.brokenbytes.hykoreapi.core.Entity
+import dev.brokenbytes.hykoreapi.core.getComponent
+import dev.brokenbytes.hykoreapi.ecs.components.DisplayNameComponent
 import dev.brokenbytes.hykoreapi.ecs.components.EcsComponent
-import kotlin.jvm.java
 
 class EntityImpl(private val ref: Ref<EntityStore>): Entity {
 
@@ -23,4 +24,6 @@ class EntityImpl(private val ref: Ref<EntityStore>): Entity {
         val componentType = ComponentMapper.toComponentType(type)
         ref.store.tryRemoveComponent(ref, componentType)
     }
+
+    override fun toString() = "Entity[${this.getComponent<DisplayNameComponent>()?.displayName ?: "unknown"}"
 }

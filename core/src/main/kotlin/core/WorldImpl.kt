@@ -2,8 +2,9 @@ package dev.brokenbytes.hykore.core
 
 import dev.brokenbytes.hykore.HMessage
 import dev.brokenbytes.hykore.HWorld
+import dev.brokenbytes.hykore.ecs.components.PlayerRefImpl
 import dev.brokenbytes.hykoreapi.core.Message
-import dev.brokenbytes.hykoreapi.core.PlayerRef
+import dev.brokenbytes.hykoreapi.ecs.components.PlayerRef
 import dev.brokenbytes.hykoreapi.core.World
 
 class WorldImpl(private val world: HWorld) : World {

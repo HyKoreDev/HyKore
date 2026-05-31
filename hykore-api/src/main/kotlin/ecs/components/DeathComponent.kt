@@ -1,4 +1,7 @@
 package dev.brokenbytes.hykoreapi.ecs.components
 
-class DeathComponent: EcsComponent {
+import dev.brokenbytes.hykoreapi.interaction.DamageSource
+
+interface DeathComponent: EcsComponent {
+    val damageSource: DamageSource?
 }

@@ -4,13 +4,22 @@ import com.hypixel.hytale.component.Component
 import com.hypixel.hytale.component.ComponentType
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
 import dev.brokenbytes.hykore.HDeathComponent
+import dev.brokenbytes.hykore.HDisplayNameComponent
+import dev.brokenbytes.hykore.HPlayerRef
+import dev.brokenbytes.hykore.ecs.components.DeathComponentImpl
+import dev.brokenbytes.hykore.ecs.components.DisplayNameComponentImpl
+import dev.brokenbytes.hykore.ecs.components.PlayerRefImpl
 import dev.brokenbytes.hykoreapi.ecs.components.EcsComponent
 import dev.brokenbytes.hykoreapi.ecs.components.DeathComponent
+import dev.brokenbytes.hykoreapi.ecs.components.DisplayNameComponent
+import dev.brokenbytes.hykoreapi.ecs.components.PlayerRef
 
 object ComponentMapper {
 
     fun from(component: Component<EntityStore>): EcsComponent = when (component) {
-        is HDeathComponent -> DeathComponent()
+        is HDeathComponent -> DeathComponentImpl(component)
+        is HDisplayNameComponent -> DisplayNameComponentImpl(component)
+        is HPlayerRef -> PlayerRefImpl(component)
         else -> error("Unknown component: $component")
     }
 
@@ -19,6 +28,8 @@ object ComponentMapper {
         componentClass: Class<out EcsComponent>
     ): ComponentType<EntityStore, Component<EntityStore>> = when (componentClass) {
         DeathComponent::class.java -> HDeathComponent.getComponentType()
+        DisplayNameComponent::class.java -> HDisplayNameComponent.getComponentType()
+        PlayerRef::class.java -> HPlayerRef.getComponentType()
         else -> error("Unknown component class: ${componentClass.name}")
     } as ComponentType<EntityStore, Component<EntityStore>>
 }
