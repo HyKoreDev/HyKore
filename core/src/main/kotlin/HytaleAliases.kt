@@ -12,6 +12,7 @@ import com.hypixel.hytale.server.core.modules.entity.component.DisplayNameCompon
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent
 import com.hypixel.hytale.server.core.modules.entity.damage.Damage
 import com.hypixel.hytale.server.core.modules.entity.damage.DeathComponent
+import com.hypixel.hytale.server.core.modules.entitystats.EntityStatMap
 import com.hypixel.hytale.server.core.modules.physics.component.Velocity
 import com.hypixel.hytale.server.core.universe.PlayerRef
 import com.hypixel.hytale.server.core.universe.Universe
@@ -35,6 +36,7 @@ typealias HProjectileDamageSource = Damage.ProjectileSource
 typealias HEnvironmentDamageSource = Damage.EnvironmentSource
 typealias HCommandDamageSource = Damage.CommandSource
 
+typealias HEntityStatMapComponent = EntityStatMap
 typealias HDamageDataComponent = DamageDataComponent
 typealias HDeathComponent = DeathComponent
 typealias HDisplayNameComponent = DisplayNameComponent
