@@ -5,17 +5,17 @@ import com.hypixel.hytale.logger.HytaleLogger
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore
 import dev.brokenbytes.hykore.mappers.EcsEventMapper
 import dev.brokenbytes.hykoreapi.core.World
-import dev.brokenbytes.hykoreapi.annotations.OnEcsEvent
+import dev.brokenbytes.hykoreapi.annotations.OnEvent
 import dev.brokenbytes.hykoreapi.ecs.events.EcsEvent
 import java.lang.reflect.Method
 
-class EcsHandlerLoader(
+class EventHandlerLoader(
     private val entityStoreRegistry: ComponentRegistryProxy<EntityStore>,
     private val logger: HytaleLogger
 ) {
 
     private data class Hub(
-        val system: EcsHandlerSystem<*>,
+        val system: EventHandler<*>,
         val handlers: MutableList<(World, EcsEvent) -> Unit>,
     )
     private val hubs = mutableMapOf<Class<out EcsEvent>, Hub>()
@@ -24,16 +24,11 @@ class EcsHandlerLoader(
 
     fun registerEvents(pluginKey: Any, listener: Any) {
         listener::class.java.methods
-            .filter { it.isAnnotationPresent(OnEcsEvent::class.java) }
+            .filter { it.isAnnotationPresent(OnEvent::class.java) }
             .forEach { method -> bind(pluginKey, listener, method) }   // key by token
     }
 
     private fun bind(pluginKey: Any, listener: Any, method: Method) {
-        method.parameterTypes.forEach { p ->
-            logger.atInfo().log("param=${p.name} loader=${p.classLoader} " +
-                    "isEcs=${EcsEvent::class.java.isAssignableFrom(p)}")
-        }
-
         val eventClass = method.parameterTypes
             .firstOrNull { EcsEvent::class.java.isAssignableFrom(it) }
             ?: error("@OnEcsEvent ${method.declaringClass.simpleName}.${method.name} " +
@@ -65,7 +60,7 @@ class EcsHandlerLoader(
         val handlers = mutableListOf<(World, EcsEvent) -> Unit>()
         @Suppress("UNCHECKED_CAST")
         val clazz = EcsEventMapper.to(evtClass)
-        val system = EcsHandlerSystem(clazz) { world, event ->
+        val system = EventHandler(clazz) { world, event ->
             handlers.toList().forEach { it(world, EcsEventMapper.from(event)) }
         }
         entityStoreRegistry.registerSystem(system)

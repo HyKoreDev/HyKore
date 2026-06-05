@@ -11,7 +11,7 @@ import dev.brokenbytes.hykore.HEcsEvent
 import dev.brokenbytes.hykore.core.WorldImpl
 import dev.brokenbytes.hykoreapi.core.World
 
-class EcsHandlerSystem<E: HEcsEvent>(
+class EventHandler<E: HEcsEvent>(
     eventClass: Class<E>,
     private val invoke: (World, E) -> Unit
 ): EntityEventSystem<EntityStore, E>(eventClass) {

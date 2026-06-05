@@ -3,20 +3,20 @@ package dev.brokenbytes.hykore
 import com.hypixel.hytale.server.core.plugin.JavaPlugin
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit
 import dev.brokenbytes.hykore.ecs.ComponentLifecycleLoader
-import dev.brokenbytes.hykore.ecs.EcsHandlerLoader
+import dev.brokenbytes.hykore.ecs.EventHandlerLoader
 import dev.brokenbytes.hykore.plugins.PluginLoader
 import dev.brokenbytes.hykoreapi.HyKorePlugin
 
 class HyKore(val plugin: JavaPluginInit) : JavaPlugin(plugin) {
 
-    private lateinit var ecsHandlerLoader: EcsHandlerLoader
+    private lateinit var ecsHandlerLoader: EventHandlerLoader
     private lateinit var componentLifecycleLoader: ComponentLifecycleLoader
     private lateinit var pluginLoader: PluginLoader
 
     override fun setup() {
         super.setup()
 
-        ecsHandlerLoader = EcsHandlerLoader(entityStoreRegistry, logger)
+        ecsHandlerLoader = EventHandlerLoader(entityStoreRegistry, logger)
         componentLifecycleLoader = ComponentLifecycleLoader(entityStoreRegistry, logger)
         pluginLoader = PluginLoader(
             logger,

@@ -2,7 +2,7 @@ package dev.brokenbytes.hykore.plugins
 
 import com.hypixel.hytale.logger.HytaleLogger
 import dev.brokenbytes.hykore.ecs.ComponentLifecycleLoader
-import dev.brokenbytes.hykore.ecs.EcsHandlerLoader
+import dev.brokenbytes.hykore.ecs.EventHandlerLoader
 import dev.brokenbytes.hykoreapi.HyKorePlugin
 import kotlinx.serialization.json.Json
 import java.io.File
@@ -11,7 +11,7 @@ import java.util.jar.JarFile
 
 class PluginLoader(
     private val logger: HytaleLogger,
-    private val ecsLoader: EcsHandlerLoader,
+    private val ecsLoader: EventHandlerLoader,
     private val componentLifecycleLoader: ComponentLifecycleLoader,
     private val parentClassLoader: ClassLoader,
 ) {
