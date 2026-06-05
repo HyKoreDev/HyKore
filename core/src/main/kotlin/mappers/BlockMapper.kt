@@ -7,8 +7,8 @@ import org.joml.Vector3i
 object BlockMapper {
 
     fun from(block: HBlock) = BlockImpl(
-        VectorMapper.from(block.position)
+        block.position.toVector()
     )
 
-    fun from(position: Vector3i) = BlockImpl(VectorMapper.from(position))
+    fun from(position: Vector3i) = BlockImpl(position.toVector())
 }

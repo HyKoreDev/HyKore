@@ -9,3 +9,5 @@ class Vector3Int(
 ) {
     fun length() = sqrt((x * x + y * y + z * z).toDouble())
 }
+
+fun Vector3Int.toVector() = Vector3(x.toDouble(), y.toDouble(), z.toDouble())

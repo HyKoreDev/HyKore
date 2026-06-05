@@ -5,3 +5,5 @@ import dev.brokenbytes.hykoreapi.interaction.DamageSource
 interface DeathComponent: EcsComponent {
     val damageSource: DamageSource?
 }
+
+data class DeathComponentData(override val damageSource: DamageSource?) : DeathComponent

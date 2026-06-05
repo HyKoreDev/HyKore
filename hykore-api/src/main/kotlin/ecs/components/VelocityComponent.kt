@@ -6,3 +6,8 @@ interface VelocityComponent: EcsComponent {
     val velocity: Vector3
     val speed: Double
 }
+
+data class VelocityComponentData(
+    override val velocity: Vector3,
+    override val speed: Double,
+): VelocityComponent

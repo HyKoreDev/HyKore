@@ -6,6 +6,7 @@ plugins {
 
 dependencies {
     implementation(libs.kotlinxSerialization)
+    implementation(libs.kotlinxCoroutines)
     implementation(project(":utils"))
     implementation(project(":hykore-api"))
 }

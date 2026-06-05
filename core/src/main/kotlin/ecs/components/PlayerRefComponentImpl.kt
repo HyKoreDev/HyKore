@@ -10,9 +10,6 @@ class PlayerRefComponentImpl(private val ref: HPlayerRef): PlayerRefComponent {
 
     override val name: String = ref.username
 
-    override fun sendNotification(notification: Notification) {
-    }
-
     override fun equals(other: Any?) = other is PlayerRefComponentImpl && other.ref === this.ref
     override fun hashCode() = System.identityHashCode(ref)
 

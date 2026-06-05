@@ -5,6 +5,9 @@ import dev.brokenbytes.hykoreapi.core.Notification
 interface PlayerRefComponent: EcsComponent {
     val id: String
     val name: String
-
-    fun sendNotification(notification: Notification)
 }
+
+data class PlayerRefComponentData(
+    override val id: String,
+    override val name: String
+): PlayerRefComponent

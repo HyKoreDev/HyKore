@@ -7,7 +7,7 @@ import dev.brokenbytes.hykore.mappers.ComponentMapper
 import dev.brokenbytes.hykoreapi.annotations.OnComponentAdd
 import dev.brokenbytes.hykoreapi.annotations.OnComponentRemove
 import dev.brokenbytes.hykoreapi.annotations.OnComponentSet
-import dev.brokenbytes.hykoreapi.core.Entity
+import dev.brokenbytes.hykoreapi.ecs.Entity
 import dev.brokenbytes.hykoreapi.core.World
 import dev.brokenbytes.hykoreapi.ecs.components.EcsComponent
 import java.lang.reflect.Method

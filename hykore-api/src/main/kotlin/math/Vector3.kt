@@ -8,4 +8,8 @@ class Vector3(
     val z: Double
 ) {
     fun length() = sqrt(x * x + y * y + z * z)
+
+    override fun toString(): String = "($x, $y, $z)"
 }
+
+fun Vector3.toVectorInt() = Vector3Int(x.toInt(), y.toInt(), z.toInt())
